@@ -1,0 +1,7 @@
+.idea/
+__pycache__/
+*.pyc
+.config
+/comaquest/static/
+/comaquest/static/*
+*.sqlite3

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comaquest</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}" />
+</head>
+<body>
+<div class="wrapper">
+    <div class="header">
+        <div class="menu-wrapper">
+            <div class="logo">
+                <img src="{% static 'main/images/logo.png' %}" alt="comaquest"/>
+            </div>
+            <div class="menu">
+                <div class="menu-el">ГЛАВНОЕ</div>
+                <div class="menu-el">О ПРОЕКТЕ</div>
+                <div class="menu-el">КВЕСТЫ</div>
+                <div class="menu-el">БРОНИРОВАНИЕ</div>
+                <div class="menu-el">КОНТАКТЫ</div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="footer">
+        Comaquest - 2014
+    </div>
+</div>
+</body>
+</html>
