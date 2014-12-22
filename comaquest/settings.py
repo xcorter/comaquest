@@ -21,7 +21,7 @@ SECRET_KEY = '_6wg8vaz1alc*^ii9u$ws0s932wi6bii97-!08orb4=4cq50l7'
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
