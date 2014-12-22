@@ -70,7 +70,7 @@ if isDev == "dev":
 else:
     db = {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'iquest',
+        'NAME': 'comaquest',
         'USER': 'comaquestdb',
         'PASSWORD': 'gjhwp832zs',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
