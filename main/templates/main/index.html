@@ -1,22 +1,30 @@
 {% extends "main/base.html" %}
 {% load staticfiles %}
 {% block content %}
-    <div class="carousel"></div>
-    <div class="info">
-
+    <div class="carousel">
+        <ul class="bxslider">
+            {% for image in slider %}
+                <li><img src="{{ image.image.url }}"/></li>
+            {% endfor %}
+        </ul>
     </div>
-    <div class="quest">
-        <div class="quest-title">ПИЛА</div>
-        <div class="quest-description">
-            <div class="quest-logo"></div>
-            <div class="quest-text"></div>
+    <div class="sub-wrapper">
+        <div class="info">
+            {{ about.text|safe }}
         </div>
-        <div class="quest-gallery">
+        <div class="quest">
+            <div class="quest-title">ПИЛА</div>
+            <div class="quest-description">
+                <div class="quest-logo"></div>
+                <div class="quest-text"></div>
+            </div>
+            <div class="quest-gallery">
+
+            </div>
+            <div class="book button">ЗАБРОНИРОВАТЬ</div>
+        </div>
+        <div class="contact">
 
         </div>
-        <div class="book button">ЗАБРОНИРОВАТЬ</div>
-    </div>
-    <div class="contact">
-
     </div>
 {% endblock %}

@@ -18,8 +18,25 @@
     src: url('../fonts/MinionPro-Regular.ttf');
 }
 
+@font-face {
+    font-family: code-bold;
+    src: url('../fonts/CODE_Bold.ttf');
+}
+
+@font-face {
+    font-family: code-light;
+    src: url('../fonts/CODE_Light.ttf');
+}
+
 @main-red: #360c0c;
 @font-red: #8b1b1b;
+@dash-color: #565656;
+@wrapped-color: #bebebe;
+
+ul {
+  padding: 0;
+  margin: 0;
+}
 
 body {
   min-height: 100%;
@@ -36,35 +53,87 @@ body {
 }
 
 .wrapper {
-  width: 1200px;
+  width: 960px;
   margin: 0 auto;
 }
 
 .wrapper {
+  background-color: @wrapped-color;
   .header {
     background-color: @main-red;
     height: 100px;
     .menu-wrapper {
-      .logo {
-        float: left;
-      }
-      .menu {
-        float: right;
-        padding-right: 20px;
-        .menu-el {
-          display: inline-block;
-          font-size: 16px;
-          font-family: bicubik;
-          color: white;
-          &.current {
-            color: @font-red;
+      position: relative;
+      .top {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        .logo {
+          float: left;
+          img {
+            padding-top: 24px;
+            padding-left: 20px;
           }
         }
+        .menu {
+          float: right;
+          padding-right: 20px;
+          padding-top: 43px;
+          .menu-el {
+            display: inline-block;
+            font-size: 16px;
+            font-family: bicubik;
+            color: white;
+            cursor: pointer;
+            padding-left: 10px;
+            &.current {
+              color: @font-red;
+            }
+          }
+        }
+      }
+      .edge-of-reality {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        color: #d22d2d;
+        font-family: code-light;
+        font-size: 108px;
+        text-align: center;
+        letter-spacing: 7px;
+        ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+        opacity: 0.2;
+        cursor: default;
       }
     }
   }
 
-
+  .content {
+    .carousel {
+      margin-bottom: 20px;
+    }
+    .sub-wrapper {
+      padding-left: 10px;
+      padding-right: 10px;
+      .info {
+        padding-left: 20px;
+        padding-right: 20px;
+        border-top: 4px dashed @dash-color;
+        h1 {
+          font-family: bicubik;
+          font-size: 33px;
+          text-indent: 30px;
+        }
+        p {
+          font-family: calibril;
+          font-size: 25px;
+          text-indent: 30px;
+        }
+      }
+    }
+  }
 
   .footer {
     background-color: @main-red;
