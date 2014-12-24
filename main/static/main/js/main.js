@@ -19,7 +19,7 @@ $(document).ready(function(){
 	});
 
     function currentMenuEl() {
-        
+
     }
 
     $(window).scroll(function(){

@@ -4,4 +4,6 @@ __pycache__/
 .config
 /comaquest/static/
 /comaquest/static/*
+/comaquest/media/
+/comaquest/media/*
 *.sqlite3
