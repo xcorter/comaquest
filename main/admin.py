@@ -1,5 +1,5 @@
 from django.contrib import admin
-from main.models import About, Slider
+from main.models import *
 
 
 class SliderAdmin(admin.ModelAdmin):
@@ -8,5 +8,8 @@ class SliderAdmin(admin.ModelAdmin):
     fields = ('admin_image', 'image')
 
 
+admin.site.register(Quest)
+admin.site.register(Contact)
+admin.site.register(QuestImage)
 admin.site.register(About)
 admin.site.register(Slider, SliderAdmin)

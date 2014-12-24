@@ -12,19 +12,28 @@
         <div class="info">
             {{ about.text|safe }}
         </div>
-        <div class="quest">
-            <div class="quest-title">ПИЛА</div>
-            <div class="quest-description">
-                <div class="quest-logo"></div>
-                <div class="quest-text"></div>
+        {% for quest in quests %}
+            <div class="quest">
+                <div class="quest-title">{{ quest.quest.title }}</div>
+                <div class="quest-description">
+                    <div class="quest-logo"><img src="{{ quest.quest.image.url }}"/></div>
+                    <div class="quest-text">{{ quest.quest.description }}</div>
+                </div>
+                <div class="quest-gallery">
+                    {% for image in quest.images %}
+                        <a href="{{ image.image.url }}">
+                            <img src="{{ image.thumbnail.url }}" />
+                        </a>
+                    {% endfor %}
+                </div>
+                <div class="book">
+                    <div class="button">ЗАБРОНИРОВАТЬ</div>
+                </div>
             </div>
-            <div class="quest-gallery">
+        {% endfor %}
 
-            </div>
-            <div class="book button">ЗАБРОНИРОВАТЬ</div>
-        </div>
         <div class="contact">
-
+            {{ contact.text|safe }}
         </div>
     </div>
 {% endblock %}

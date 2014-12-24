@@ -55,31 +55,39 @@ body {
   background-color: #bebebe;
 }
 .wrapper .header {
-  background-color: #360c0c;
   height: 100px;
-}
-.wrapper .header .menu-wrapper {
   position: relative;
 }
-.wrapper .header .menu-wrapper .top {
+.wrapper .header .fixed-menu {
+  position: fixed;
+  z-index: 99999;
+  height: 100px;
+  display: block;
+  width: 960px;
+  background-color: #360c0c;
+}
+.wrapper .header .fixed-menu .menu-wrapper {
+  position: relative;
+}
+.wrapper .header .fixed-menu .menu-wrapper .top {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 100;
 }
-.wrapper .header .menu-wrapper .top .logo {
+.wrapper .header .fixed-menu .menu-wrapper .top .logo {
   float: left;
 }
-.wrapper .header .menu-wrapper .top .logo img {
+.wrapper .header .fixed-menu .menu-wrapper .top .logo img {
   padding-top: 24px;
   padding-left: 20px;
 }
-.wrapper .header .menu-wrapper .top .menu {
+.wrapper .header .fixed-menu .menu-wrapper .top .menu {
   float: right;
   padding-right: 20px;
   padding-top: 43px;
 }
-.wrapper .header .menu-wrapper .top .menu .menu-el {
+.wrapper .header .fixed-menu .menu-wrapper .top .menu .menu-el {
   display: inline-block;
   font-size: 16px;
   font-family: bicubik;
@@ -87,10 +95,10 @@ body {
   cursor: pointer;
   padding-left: 10px;
 }
-.wrapper .header .menu-wrapper .top .menu .menu-el.current {
+.wrapper .header .fixed-menu .menu-wrapper .top .menu .menu-el.current {
   color: #8b1b1b;
 }
-.wrapper .header .menu-wrapper .edge-of-reality {
+.wrapper .header .fixed-menu .menu-wrapper .edge-of-reality {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -103,6 +111,9 @@ body {
   ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
   opacity: 0.2;
   cursor: default;
+}
+.wrapper .content {
+  background-image: url('../images/background.png');
 }
 .wrapper .content .carousel {
   margin-bottom: 20px;
@@ -125,6 +136,54 @@ body {
   font-family: calibril;
   font-size: 25px;
   text-indent: 30px;
+}
+.wrapper .content .sub-wrapper .quest {
+  border-top: 4px dashed #565656;
+  padding-top: 35px;
+}
+.wrapper .content .sub-wrapper .quest .quest-title {
+  background-color: #955252;
+  font-family: bicubik;
+  font-size: 33px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 20px;
+}
+.wrapper .content .sub-wrapper .quest .quest-description {
+  background-color: #c5c5c5;
+  padding: 15px;
+  min-height: 250px;
+}
+.wrapper .content .sub-wrapper .quest .quest-description .quest-logo {
+  width: 267px;
+  display: block;
+  float: left;
+}
+.wrapper .content .sub-wrapper .quest .quest-description .quest-text {
+  font-family: calibril;
+  font-size: 25px;
+  display: inline;
+  width: 650px;
+}
+.wrapper .content .sub-wrapper .quest .book {
+  margin-bottom: 20px;
+  text-align: right;
+}
+.wrapper .content .sub-wrapper .quest .book .button {
+  padding-left: 33px;
+  padding-right: 33px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #360c0c;
+  display: inline-block;
+  font-family: bicubik;
+  color: white;
+  font-size: 16px;
+}
+.wrapper .content .sub-wrapper .contact {
+  border-top: 4px dashed #565656;
+  padding-top: 10px;
+  font-family: bicubik;
 }
 .wrapper .footer {
   background-color: #360c0c;

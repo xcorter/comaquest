@@ -3,27 +3,32 @@
 <head>
     <title>Comaquest</title>
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'main/css/jquery.bxslider.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/magnific-popup.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}" />
     <script type="text/javascript" src="{% static 'main/js/jquery.js' %}"></script>
     <script type="text/javascript" src="{% static 'main/js/jquery.bxslider.js' %}"></script>
+    <script type="text/javascript" src="{% static 'main/js/jquery.magnific-popup.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'main/js/animatescroll.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'main/js/main.js' %}"></script>
 </head>
 <body>
 <div class="wrapper">
     <div class="header">
+        <div class="fixed-menu">
         <div class="menu-wrapper">
             <div class="edge-of-reality">EDGE OF REALITY</div>
-            <div class="top">
-                <div class="logo">
-                    <img src="{% static 'main/images/logo.png' %}" alt="comaquest"/>
-                </div>
-                <div class="menu">
-                    <div class="menu-el">ГЛАВНОЕ</div>
-                    <div class="menu-el">О ПРОЕКТЕ</div>
-                    <div class="menu-el">КВЕСТЫ</div>
-                    <div class="menu-el">БРОНИРОВАНИЕ</div>
-                    <div class="menu-el">КОНТАКТЫ</div>
+                <div class="top">
+                    <div class="logo">
+                        <img src="{% static 'main/images/logo.png' %}" alt="comaquest"/>
+                    </div>
+                    <div class="menu">
+                        <div class="menu-el" onclick="$('body').animatescroll();">ГЛАВНОЕ</div>
+                        <div class="menu-el" onclick="$('.info').animatescroll({padding:100});">О ПРОЕКТЕ</div>
+                        <div class="menu-el" onclick="$('.quest:first').animatescroll({padding:100});">КВЕСТЫ</div>
+                        <div class="menu-el">БРОНИРОВАНИЕ</div>
+                        <div class="menu-el" onclick="$('.contact').animatescroll({padding:100});">КОНТАКТЫ</div>
+                    </div>
                 </div>
             </div>
         </div>
