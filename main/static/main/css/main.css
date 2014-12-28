@@ -47,12 +47,24 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2b2b2b', endColorstr='#5e5e5e', GradientType=0);
   /* IE6-9 */
 }
+.button {
+  padding-left: 33px;
+  padding-right: 33px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #360c0c;
+  display: inline-block;
+  font-family: bicubik;
+  color: white;
+  font-size: 16px;
+}
 .wrapper {
   width: 960px;
   margin: 0 auto;
 }
 .wrapper {
   background-color: #bebebe;
+  /*** ORDER ***/
 }
 .wrapper .header {
   height: 100px;
@@ -91,11 +103,18 @@ body {
   display: inline-block;
   font-size: 16px;
   font-family: bicubik;
-  color: white;
   cursor: pointer;
   padding-left: 10px;
+  color: white;
 }
-.wrapper .header .fixed-menu .menu-wrapper .top .menu .menu-el.current {
+.wrapper .header .fixed-menu .menu-wrapper .top .menu .menu-el:hover {
+  color: #8b1b1b;
+}
+.wrapper .header .fixed-menu .menu-wrapper .top .menu .menu-el a {
+  text-decoration: none;
+  color: white;
+}
+.wrapper .header .fixed-menu .menu-wrapper .top .menu .menu-el a:hover {
   color: #8b1b1b;
 }
 .wrapper .header .fixed-menu .menu-wrapper .edge-of-reality {
@@ -151,7 +170,10 @@ body {
 }
 .wrapper .content .sub-wrapper .quest .quest-description {
   background-color: #c5c5c5;
-  padding: 15px;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 30px;
   min-height: 250px;
 }
 .wrapper .content .sub-wrapper .quest .quest-description .quest-logo {
@@ -165,25 +187,109 @@ body {
   display: inline;
   width: 650px;
 }
+.wrapper .content .sub-wrapper .quest .quest-gallery {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  background-color: #c5c5c5;
+}
+.wrapper .content .sub-wrapper .quest .quest-gallery a {
+  margin-right: 26px;
+}
+.wrapper .content .sub-wrapper .quest .quest-gallery a img {
+  width: 121px;
+  height: 110px;
+}
+.wrapper .content .sub-wrapper .quest .quest-gallery a:last-child {
+  margin-right: 0px;
+}
 .wrapper .content .sub-wrapper .quest .book {
   margin-bottom: 20px;
   text-align: right;
-}
-.wrapper .content .sub-wrapper .quest .book .button {
-  padding-left: 33px;
-  padding-right: 33px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: #360c0c;
-  display: inline-block;
-  font-family: bicubik;
-  color: white;
-  font-size: 16px;
 }
 .wrapper .content .sub-wrapper .contact {
   border-top: 4px dashed #565656;
   padding-top: 10px;
   font-family: bicubik;
+}
+.wrapper .order-wrapper {
+  background-color: white;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+.wrapper .order-wrapper .title-order {
+  font-size: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.wrapper .order-wrapper .order {
+  height: 470px;
+  width: 100%;
+  position: relative;
+  /*** datepicker ***/
+}
+.wrapper .order-wrapper .order #datepicker {
+  float: left;
+  margin-bottom: 30px;
+  color: grey;
+  width: 100%;
+}
+.wrapper .order-wrapper .order #datepicker table.ui-datepicker-calendar {
+  width: 645px;
+}
+.wrapper .order-wrapper .order #datepicker .ui-datepicker {
+  width: 100%;
+}
+.wrapper .order-wrapper .order #datepicker .ui-datepicker-month {
+  font-size: 14pt;
+}
+.wrapper .order-wrapper .order #datepicker .ui-icon {
+  background-image: url("../images/ui-icons_222222_256x240.png");
+  width: 16px;
+  display: block;
+  position: absolute;
+  left: 50%;
+  margin-left: -8px;
+  top: 50%;
+  margin-top: -8px;
+}
+.wrapper .order-wrapper .order #datepicker .ui-datepicker-prev .ui-icon {
+  background-position: -80px -192px;
+}
+.wrapper .order-wrapper .order #datepicker .ui-datepicker-next .ui-icon {
+  background-position: -48px -192px;
+}
+.wrapper .order-wrapper .order #datepicker .ui-state-default {
+  font-size: 14pt;
+  text-align: center;
+}
+.wrapper .order-wrapper .order #datepicker .ui-datepicker th {
+  font-size: 9pt;
+  width: 14%;
+}
+.wrapper .order-wrapper .order #datepicker .ui-datepicker td a:hover {
+  background-color: #d2d0de;
+}
+.wrapper .order-wrapper .order #datepicker .ui-datepicker-current-day {
+  background-color: #d2d0de;
+}
+.wrapper .order-wrapper .order .fields {
+  position: absolute;
+  right: 0;
+  top: 47px;
+  font-size: 9pt;
+  color: grey;
+  width: 220px;
+}
+.wrapper .order-wrapper .order .fields .field {
+  padding-top: 8px;
+}
+.wrapper .order-wrapper .order .fields div input[type=text],
+.wrapper .order-wrapper .order .fields div textarea {
+  width: 100%;
+}
+.wrapper .order-wrapper .order .fields div input[name=participantAmount][type=text] {
+  width: 30px;
 }
 .wrapper .footer {
   background-color: #360c0c;

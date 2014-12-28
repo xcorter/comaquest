@@ -1,0 +1,56 @@
+{% extends "main/base.html" %}
+{% load staticfiles %}
+
+{% block scripts %}
+    <script>
+        var orders = {{ order_json|safe }};
+    </script>
+{% endblock %}
+
+{% block menu %}
+    <div class="menu">
+        <div class="menu-el"><a href="{% url 'main:index' %}">ГЛАВНОЕ</a></div>
+        <div class="menu-el"><a href="{% url 'main:index' %}#info">О ПРОЕКТЕ</a></div>
+        <div class="menu-el"><a href="{% url 'main:index' %}#quests">КВЕСТЫ</a></div>
+        <div class="menu-el"><a href="#">БРОНИРОВАНИЕ</a></div>
+        <div class="menu-el"><a href="{% url 'main:index' %}#contact">КОНТАКТЫ</a></div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="order-wrapper">
+        <div class="title-order">ЗАБРОНИРОВАТЬ</div>
+        <form id="order" method="post">{% csrf_token %}
+            <div><label>Выберите квест
+                <select class="quest" name="quest">
+                    {% for quest in quests %}
+                        <option value="{{ quest.id }}">{{ quest.title }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            </div>
+            <div class="order">
+                <div id="datepicker"></div>
+                <div class="fields">
+                    <div class="choose-date">Выбирите дату квеста</div>
+                    <input type="hidden" name="date"/>
+                    <div class="time field">
+                        {% for time in times %}
+                            <div>
+                                <label>
+                                    <input type="radio" name="time" value="{{ time.id }}"/>{{ time.time }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="first-name field"><input type="text" placeholder="Имя" name="firstName"></div>
+                    <div class="last-name field"><input type="text" placeholder="Фамилия" name="lastName"></div>
+                    <div class="email field"><input type="text" placeholder="Ваш e-mail" name="email"></div>
+                    <div class="phone field"><input type="text" placeholder="Контактный телефон" name="phone"></div>
+                    <div class="participant-amount field"><input type="text" name="participantAmount"> - количество участников</div>
+                    <div class="comment field"><textarea placeholder="Комментарий" name="comment"></textarea></div>
+                    <div class="to-book field"><a href="#" class="button submit">Забронировать</a></div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

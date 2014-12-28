@@ -52,6 +52,18 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b2b2b', endColorstr='#5e5e5e',GradientType=0 ); /* IE6-9 */
 }
 
+.button {
+  padding-left: 33px;
+  padding-right: 33px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: @main-red;
+  display: inline-block;
+  font-family: bicubik;
+  color: white;
+  font-size: 16px;
+}
+
 .wrapper {
   width: 960px;
   margin: 0 auto;
@@ -91,11 +103,18 @@ body {
               display: inline-block;
               font-size: 16px;
               font-family: bicubik;
-              color: white;
               cursor: pointer;
               padding-left: 10px;
-              &.current {
+              color: white;
+              &:hover {
                 color: @font-red;
+              }
+              a {
+                text-decoration: none;
+                color: white;
+                &:hover {
+                  color: @font-red;
+                }
               }
             }
           }
@@ -155,7 +174,10 @@ body {
         }
         .quest-description {
           background-color: #c5c5c5;
-          padding: 15px;
+          padding-top: 15px;
+          padding-left: 15px;
+          padding-right: 15px;
+          padding-bottom: 30px;
           min-height: 250px;
           .quest-logo {
             width: 267px;
@@ -169,20 +191,25 @@ body {
             width: 650px;
           }
         }
+        .quest-gallery {
+          padding-left: 30px;
+          padding-right: 30px;
+          padding-bottom: 30px;
+          background-color: #c5c5c5;
+          a {
+            margin-right: 26px;
+            img {
+              width: 121px;
+              height: 110px;
+            }
+          }
+          a:last-child {
+            margin-right: 0px;
+          }
+        }
         .book {
           margin-bottom: 20px;
           text-align: right;
-          .button {
-            padding-left: 33px;
-            padding-right: 33px;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            background-color: @main-red;
-            display: inline-block;
-            font-family: bicubik;
-            color: white;
-            font-size: 16px;
-          }
         }
       }
       .contact {
@@ -192,6 +219,106 @@ body {
       }
     }
   }
+
+  /*** ORDER ***/
+  .order-wrapper {
+    background-color: white;
+    padding-left: 35px;
+    padding-right: 35px;
+    .title-order {
+      font-size: 30px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .order {
+      height: 470px;
+      width: 100%;
+      position: relative;
+      /*** datepicker ***/
+      #datepicker {
+        float: left;
+        margin-bottom: 30px;
+        color: grey;
+        width: 100%;
+        table.ui-datepicker-calendar {
+          width: 645px;
+        }
+        .ui-datepicker {
+          width: 100%;
+        }
+
+        .ui-datepicker-month {
+          font-size: 14pt;
+        }
+
+        .ui-icon  {
+          background-image: url("../images/ui-icons_222222_256x240.png");
+          width: 16px;
+          display: block;
+          position: absolute;
+          left: 50%;
+          margin-left: -8px;
+          top: 50%;
+          margin-top: -8px;
+        }
+
+        .ui-datepicker-prev {
+          .ui-icon {
+            background-position: -80px -192px;
+          }
+        }
+
+        .ui-datepicker-next {
+          .ui-icon {
+            background-position: -48px -192px;
+          }
+        }
+
+        .ui-state-default {
+          font-size: 14pt;
+          text-align: center;
+        }
+
+        .ui-datepicker {
+          th {
+            font-size: 9pt;
+            width: 14%;
+          }
+
+          td {
+            a:hover {
+              background-color: #d2d0de;
+            }
+          }
+        }
+        .ui-datepicker-current-day {
+          background-color: #d2d0de;
+        }
+      }
+      .fields {
+        position: absolute;
+        right: 0;
+        top: 47px;
+        font-size: 9pt;
+        color: grey;
+        width: 220px;
+//        padding-top: 12px;
+        .field {
+          padding-top: 8px;
+        }
+        div {
+          input[type=text], textarea {
+            width: 100%;
+          }
+          input[name=participantAmount][type=text] {
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
+
 
   .footer {
     background-color: @main-red;
