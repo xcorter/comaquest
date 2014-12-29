@@ -63,6 +63,7 @@ body {
   margin: 0 auto;
 }
 .wrapper {
+  position: relative;
   background-color: #bebebe;
   /*** ORDER ***/
 }
