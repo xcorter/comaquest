@@ -67,7 +67,7 @@ class Time(models.Model):
         verbose_name_plural = "Время"
 
     def __str__(self):
-        return self.title
+        return self.time
 
 
 class Order(models.Model):
