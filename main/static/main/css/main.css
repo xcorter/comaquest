@@ -148,13 +148,9 @@ body {
   border-top: 4px dashed #565656;
 }
 .wrapper .content .sub-wrapper .info h1 {
-  font-family: bicubik;
-  font-size: 33px;
   text-indent: 30px;
 }
 .wrapper .content .sub-wrapper .info p {
-  font-family: calibril;
-  font-size: 25px;
   text-indent: 30px;
 }
 .wrapper .content .sub-wrapper .quest {

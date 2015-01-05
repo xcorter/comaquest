@@ -1,0 +1,24 @@
+@font-face {
+  font-family: bicubik;
+  src: url('../fonts/bicubik-regular.ttf');
+}
+@font-face {
+  font-family: calibril;
+  src: url('../fonts/calibril.ttf');
+}
+@font-face {
+  font-family: sawesome;
+  src: url('../fonts/sawesome.ttf');
+}
+@font-face {
+  font-family: minion-pro;
+  src: url('../fonts/MinionPro-Regular.ttf');
+}
+@font-face {
+  font-family: code-bold;
+  src: url('../fonts/CODE_Bold.ttf');
+}
+@font-face {
+  font-family: code-light;
+  src: url('../fonts/CODE_Light.ttf');
+}
