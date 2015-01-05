@@ -231,6 +231,9 @@ body {
   color: grey;
   width: 100%;
 }
+.wrapper .order-wrapper .order #datepicker .ui-datepicker-title {
+  text-transform: uppercase;
+}
 .wrapper .order-wrapper .order #datepicker table.ui-datepicker-calendar {
   width: 645px;
 }
@@ -259,6 +262,8 @@ body {
 .wrapper .order-wrapper .order #datepicker .ui-state-default {
   font-size: 14pt;
   text-align: center;
+  border: 1px solid #c0c0c0;
+  border-radius: 3px;
 }
 .wrapper .order-wrapper .order #datepicker .ui-datepicker th {
   font-size: 9pt;

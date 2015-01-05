@@ -33,7 +33,7 @@ class Slider(models.Model):
 
 class Quest(models.Model):
     title = models.CharField(max_length=255, verbose_name='Заголовок')
-    description = models.TextField(verbose_name="Описание")
+    description = RichTextField(verbose_name="Описание")
     image = models.ImageField(upload_to="quest_images/", verbose_name="Изображение")
 
     def __str__(self):
