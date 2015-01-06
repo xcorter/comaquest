@@ -18,7 +18,7 @@
                 <div class="quest-title">{{ quest.quest.title }}</div>
                 <div class="quest-description">
                     <div class="quest-logo"><img src="{{ quest.quest.image.url }}"/></div>
-                    <div class="quest-text">{{ quest.quest.description }}</div>
+                    <div class="quest-text">{{ quest.quest.description|safe }}</div>
                 </div>
                 <div class="quest-gallery">
                     {% for image in quest.images %}
