@@ -253,8 +253,7 @@ body {
         }
 
         .ui-icon  {
-          background-image: url("../images/ui-icons_222222_256x240.png");
-          width: 16px;
+          width: 15px;
           display: block;
           position: absolute;
           left: 50%;
@@ -264,24 +263,52 @@ body {
         }
 
         .ui-datepicker-prev {
+          left: 300px;
+          &.ui-datepicker-prev-hover {
+            left: 301px;
+          }
           .ui-icon {
-            background-position: -80px -192px;
+            background-image: url("../images/left.gif");
           }
         }
 
         .ui-datepicker-next {
+          right: 300px;
+          &.ui-datepicker-next-hover {
+            right: 299px;
+          }
           .ui-icon {
-            background-position: -48px -192px;
+            background-image: url("../images/right.gif");
           }
         }
 
+        .ui-state-disabled {
+          .ui-state-default {
+            background-color: white;
+          }
+        }
         .ui-state-default {
-          font-size: 14pt;
-          text-align: center;
+          font-size: 9pt;
           border: 1px solid #c0c0c0;
           border-radius: 3px;
+          background-color: #c76969;
+          text-align: left;
+          height: 46px;
+          .available {
+            text-align: center;
+          }
+          &a::after {
+            content: 'Осталось игр: ' attr(data-available);
+            display: block;
+            text-align: center;
+          }
         }
-
+          a.ui-state-default:after {
+            content: 'Осталось игр: ' attr(data-available);
+            display: block;
+            text-align: center;
+            width: 68px;
+          }
         .ui-datepicker {
           th {
             font-size: 9pt;
@@ -289,13 +316,14 @@ body {
           }
 
           td {
+            padding: 6px;
             a:hover {
               background-color: #d2d0de;
             }
+            a, a:hover {
+              color: black;
+            }
           }
-        }
-        .ui-datepicker-current-day {
-          background-color: #d2d0de;
         }
       }
       .fields {
@@ -308,6 +336,10 @@ body {
 //        padding-top: 12px;
         .field {
           padding-top: 8px;
+          &.date {
+            font-weight: bold;
+            color: black;
+          }
         }
         div {
           input[type=text], textarea {

@@ -244,8 +244,7 @@ body {
   font-size: 14pt;
 }
 .wrapper .order-wrapper .order #datepicker .ui-icon {
-  background-image: url("../images/ui-icons_222222_256x240.png");
-  width: 16px;
+  width: 15px;
   display: block;
   position: absolute;
   left: 50%;
@@ -253,27 +252,62 @@ body {
   top: 50%;
   margin-top: -8px;
 }
+.wrapper .order-wrapper .order #datepicker .ui-datepicker-prev {
+  left: 300px;
+}
+.wrapper .order-wrapper .order #datepicker .ui-datepicker-prev.ui-datepicker-prev-hover {
+  left: 301px;
+}
 .wrapper .order-wrapper .order #datepicker .ui-datepicker-prev .ui-icon {
-  background-position: -80px -192px;
+  background-image: url("../images/left.gif");
+}
+.wrapper .order-wrapper .order #datepicker .ui-datepicker-next {
+  right: 300px;
+}
+.wrapper .order-wrapper .order #datepicker .ui-datepicker-next.ui-datepicker-next-hover {
+  right: 299px;
 }
 .wrapper .order-wrapper .order #datepicker .ui-datepicker-next .ui-icon {
-  background-position: -48px -192px;
+  background-image: url("../images/right.gif");
+}
+.wrapper .order-wrapper .order #datepicker .ui-state-disabled .ui-state-default {
+  background-color: white;
 }
 .wrapper .order-wrapper .order #datepicker .ui-state-default {
-  font-size: 14pt;
-  text-align: center;
+  font-size: 9pt;
   border: 1px solid #c0c0c0;
   border-radius: 3px;
+  background-color: #c76969;
+  text-align: left;
+  height: 46px;
+}
+.wrapper .order-wrapper .order #datepicker .ui-state-default .available {
+  text-align: center;
+}
+.wrapper .order-wrapper .order #datepicker .ui-state-defaulta::after {
+  content: 'Осталось игр: ' attr(data-available);
+  display: block;
+  text-align: center;
+}
+.wrapper .order-wrapper .order #datepicker a.ui-state-default:after {
+  content: 'Осталось игр: ' attr(data-available);
+  display: block;
+  text-align: center;
+  width: 68px;
 }
 .wrapper .order-wrapper .order #datepicker .ui-datepicker th {
   font-size: 9pt;
   width: 14%;
 }
+.wrapper .order-wrapper .order #datepicker .ui-datepicker td {
+  padding: 6px;
+}
 .wrapper .order-wrapper .order #datepicker .ui-datepicker td a:hover {
   background-color: #d2d0de;
 }
-.wrapper .order-wrapper .order #datepicker .ui-datepicker-current-day {
-  background-color: #d2d0de;
+.wrapper .order-wrapper .order #datepicker .ui-datepicker td a,
+.wrapper .order-wrapper .order #datepicker .ui-datepicker td a:hover {
+  color: black;
 }
 .wrapper .order-wrapper .order .fields {
   position: absolute;
@@ -285,6 +319,10 @@ body {
 }
 .wrapper .order-wrapper .order .fields .field {
   padding-top: 8px;
+}
+.wrapper .order-wrapper .order .fields .field.date {
+  font-weight: bold;
+  color: black;
 }
 .wrapper .order-wrapper .order .fields div input[type=text],
 .wrapper .order-wrapper .order .fields div textarea {
