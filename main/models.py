@@ -31,9 +31,21 @@ class Slider(models.Model):
         verbose_name_plural = "Изображения слайдера"
 
 
+class Time(models.Model):
+    time = models.CharField(max_length=50, verbose_name='Время')
+
+    class Meta:
+        verbose_name = "Время"
+        verbose_name_plural = "Время"
+
+    def __str__(self):
+        return self.time
+
+
 class Quest(models.Model):
     title = models.CharField(max_length=255, verbose_name='Заголовок')
     description = RichTextField(verbose_name="Описание")
+    schedule = models.ManyToManyField(Time, verbose_name='Время', null=True) #TODO remove null
     image = models.ImageField(upload_to="quest_images/", verbose_name="Изображение")
 
     def __str__(self):
@@ -57,17 +69,6 @@ class QuestImage(models.Model):
     class Meta:
         verbose_name = "Изображение квестов"
         verbose_name_plural = "Изображения квестов"
-
-
-class Time(models.Model):
-    time = models.CharField(max_length=50, verbose_name='Время')
-
-    class Meta:
-        verbose_name = "Время"
-        verbose_name_plural = "Время"
-
-    def __str__(self):
-        return self.time
 
 
 class Order(models.Model):

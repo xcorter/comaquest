@@ -83,10 +83,27 @@ $(document).ready(function(){
     });
 
     $('select.quest').change(function(){
+        setTimes();
         disableTimeOrders();
     });
 
+    function setTimes() {
+        var selectedQuest = $('[name=quest] option:selected');
+        for (var i = 0; i < schedule.length; i++) {
+            if (schedule[i].questId != selectedQuest.val()) {
+                continue;
+            }
+            $('.fields .time').html("");
+            for (var j = 0; j < schedule[i].times.length; j++) {
+                $('.fields .time').append(
+                    "<div><label><input type='radio' name='time' value='" + schedule[i].times[j].id + "'/>" + schedule[i].times[j].time + "</label></div>"
+                );
+            }
+        }
+    }
+
     function init() {
+        setTimes();
         disableTimeOrders();
     }
     init();

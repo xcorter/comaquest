@@ -4,6 +4,7 @@
 {% block scripts %}
     <script>
         var orders = {{ order_json|safe }};
+        var schedule = [];
     </script>
 {% endblock %}
 
@@ -24,6 +25,19 @@
                 <select class="quest" name="quest">
                     {% for quest in quests %}
                         <option value="{{ quest.id }}">{{ quest.title }}</option>
+                        <script>
+                            schedule.push({
+                                questId : {{ quest.id }},
+                                times : [
+                                    {% for time in quest.schedule.all %}
+                                        {
+                                            id: {{ time.id }},
+                                            time: '{{ time.time }}'
+                                        }{% if not forloop.last %},{% endif %}
+                                    {% endfor %}
+                                ]
+                            });
+                        </script>
                     {% endfor %}
                 </select>
             </label>
@@ -34,13 +48,6 @@
                     <div class="choose-date">Выбирите дату квеста</div>
                     <input type="hidden" name="date"/>
                     <div class="time field">
-                        {% for time in times %}
-                            <div>
-                                <label>
-                                    <input type="radio" name="time" value="{{ time.id }}"/>{{ time.time }}
-                                </label>
-                            </div>
-                        {% endfor %}
                     </div>
                     <div class="first-name field"><input type="text" placeholder="Имя" name="firstName"></div>
                     <div class="last-name field"><input type="text" placeholder="Фамилия" name="lastName"></div>

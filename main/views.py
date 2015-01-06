@@ -68,6 +68,12 @@ class OrderView(CreateView):
             quest = Quest.objects.get(pk=quest)
             if not quest:
                 return error_json_response("Wrong request")
+            wrong_time = True
+            for available_time in quest.schedule.all():
+                if available_time == time_obj:
+                    wrong_time = False
+            if wrong_time:
+                raise Exception()
             first_name = request.POST['firstName'].strip()
             last_name = request.POST['lastName'].strip()
             phone = request.POST['phone'].strip()
