@@ -20,7 +20,7 @@
                     <div class="quest-logo"><img src="{{ quest.quest.image.url }}"/></div>
                     <div class="quest-text">{{ quest.quest.description|safe }}</div>
                 </div>
-                <div class="quest-gallery">
+                <div id="gallery{{forloop.counter}}" class="quest-gallery">
                     {% for image in quest.images %}
                         <a href="{{ image.image.url }}">
                             <img src="{{ image.thumbnail.url }}" />

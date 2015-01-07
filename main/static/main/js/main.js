@@ -16,17 +16,19 @@ $(document).ready(function(){
         auto: true
     });
 
-    $('.quest-gallery').magnificPopup({
-        delegate: 'a',
-        type: 'image',
-        tLoading: 'Loading image #%curr%...',
-        mainClass: 'mfp-img-mobile',
-        gallery: {
-			enabled: true,
-			navigateByImgClick: true,
-			preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-		}
-	});
+    $('.quest-gallery').each(function(){
+        $('#' + $(this).attr('id')).magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            tLoading: 'Loading image #%curr%...',
+            mainClass: 'mfp-img-mobile',
+            gallery: {
+                enabled: true,
+                navigateByImgClick: true,
+                preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+            }
+        });
+    });
 
     function disableTimeOrders() {
         $('.time input[name=time]').prop('checked', false).prop('disabled', false);
