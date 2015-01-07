@@ -62,12 +62,12 @@ class OrderView(CreateView):
             time = int(request.POST['time'])
             time_obj = Time.objects.get(pk=time)
             if not time_obj:
-                raise Exception()
+                raise Exception("Время не найдено")
             date = request.POST['date']
             timestamp = int(ftime.mktime(datetime.datetime.strptime(date, "%Y-%m-%d").timetuple()))
             current_time = int(ftime.time()) - 86400
             if timestamp < current_time:
-                raise Exception()
+                raise Exception("Попытка забронировать на прошедшие даты")
             quest = int(request.POST['quest'])
             quest = Quest.objects.get(pk=quest)
             if not quest:
@@ -77,7 +77,7 @@ class OrderView(CreateView):
                 if available_time == time_obj:
                     wrong_time = False
             if wrong_time:
-                raise Exception()
+                raise Exception("Попытка забронировать на несуществующее время")
             first_name = request.POST['firstName'].strip()
             last_name = request.POST['lastName'].strip()
             phone = request.POST['phone'].strip()
@@ -104,17 +104,17 @@ class OrderView(CreateView):
                 try:
                     from django.core.mail import send_mail
                     text = "На " + time_obj.time + ", " + date + " был забронирован квест " + quest.title + ".\n" + \
-                           "Имя: " + first_name + \
-                           "Фамилия: " + last_name + \
-                           "Телефон: " + phone + \
-                           "Email: " + email + \
-                           "Комментарий: " + comment + \
+                           "Имя: " + first_name + ".\n" + \
+                           "Фамилия: " + last_name + ".\n" + \
+                           "Телефон: " + phone + ".\n" + \
+                           "Email: " + email + ".\n" + \
+                           "Комментарий: " + comment + ".\n" + \
                            "Количество человек: " + str(participant_amount)
                     send_mail(
                         "Бронирование comaquest",
                         text,
                         "comaquest@mailer.ru",
-                        "xcorter@mail.ru",
+                        "perseidsstarfall@gmail.com",
                         fail_silently=True
                     )
                 except Exception as e:
