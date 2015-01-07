@@ -6,6 +6,10 @@ from django.utils import timezone
 from django.core import serializers
 from django.http import JsonResponse
 import datetime, time as ftime
+import logging
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 
 class IndexView(generic.TemplateView):
@@ -97,8 +101,27 @@ class OrderView(CreateView):
                     participant_amount=participant_amount
                 )
                 quest_order.save()
+                try:
+                    from django.core.mail import send_mail
+                    text = "На " + time_obj.time + ", " + date + " был забронирован квест " + quest.title + ".\n" + \
+                           "Имя: " + first_name + \
+                           "Фамилия: " + last_name + \
+                           "Телефон: " + phone + \
+                           "Email: " + email + \
+                           "Комментарий: " + comment + \
+                           "Количество человек: " + str(participant_amount)
+                    send_mail(
+                        "Бронирование comaquest",
+                        text,
+                        "comaquest@mailer.ru",
+                        "xcorter@mail.ru",
+                        fail_silently=True
+                    )
+                except Exception as e:
+                    logger.error(str(e))
                 return json_response("Ваша заявка принята")
             else:
                 return error_json_response("Данное время уже забранировано")
-        except Exception:
+        except Exception as e:
+            logger.error(str(e))
             return error_json_response("Неизвестная ошибка")

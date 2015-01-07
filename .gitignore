@@ -7,3 +7,4 @@ __pycache__/
 /comaquest/media/
 /comaquest/media/*
 *.sqlite3
+comaquest.log

@@ -73,7 +73,7 @@ body {
 }
 .wrapper .header .fixed-menu {
   position: fixed;
-  z-index: 99999;
+  z-index: 1010;
   height: 100px;
   display: block;
   width: 960px;
@@ -138,6 +138,9 @@ body {
 .wrapper .content .carousel {
   margin-bottom: 20px;
 }
+.wrapper .content .carousel .bx-wrapper .bx-controls-direction a {
+  z-index: 1000;
+}
 .wrapper .content .sub-wrapper {
   padding-left: 10px;
   padding-right: 10px;
@@ -189,9 +192,14 @@ body {
   padding-right: 30px;
   padding-bottom: 30px;
   background-color: #c5c5c5;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 106px;
+  white-space: nowrap;
 }
 .wrapper .content .sub-wrapper .quest .quest-gallery a {
   margin-right: 26px;
+  text-decoration: none;
 }
 .wrapper .content .sub-wrapper .quest .quest-gallery a img {
   width: 121px;
@@ -281,8 +289,8 @@ body {
   text-align: left;
   height: 46px;
 }
-.wrapper .order-wrapper .order #datepicker .ui-state-default .available {
-  text-align: center;
+.wrapper .order-wrapper .order #datepicker .ui-state-default.ui-state-active {
+  background-color: #a25151;
 }
 .wrapper .order-wrapper .order #datepicker .ui-state-defaulta::after {
   content: 'Осталось игр: ' attr(data-available);
