@@ -142,7 +142,7 @@ CKEDITOR_CONFIGS = {
 if platform.system() == "Windows":
     log_path = "comaquest.log"
 else:
-    log_path = "/var/log/comaquest.log"
+    log_path = "~/log/comaquest.log"
 
 LOGGING = {
     'version': 1,
