@@ -78,6 +78,8 @@ else:
         'PORT': '3306',
     }
     debug = False
+    EMAIL_HOST = 'localhost'
+    EMAIL_PORT = 25
 
 DATABASES = {
     'default': {
