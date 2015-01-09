@@ -22,7 +22,8 @@
   font-family: code-light;
   src: url('../fonts/CODE_Light.ttf');
 }
-ul {
+ul,
+li {
   padding: 0;
   margin: 0;
 }
@@ -187,25 +188,58 @@ body {
   display: inline;
   width: 650px;
 }
-.wrapper .content .sub-wrapper .quest .quest-gallery {
-  padding-left: 30px;
-  padding-right: 30px;
+.wrapper .content .sub-wrapper .quest .gallery-wrapper {
+  background-color: #c5c5c5;
+}
+.wrapper .content .sub-wrapper .quest .gallery-wrapper .quest-gallery {
+  position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
   padding-bottom: 30px;
   background-color: #c5c5c5;
-  overflow-x: auto;
-  overflow-y: hidden;
-  height: 106px;
-  white-space: nowrap;
+  margin: 0 10px;
+  overflow: hidden;
 }
-.wrapper .content .sub-wrapper .quest .quest-gallery a {
-  margin-right: 26px;
+.wrapper .content .sub-wrapper .quest .gallery-wrapper .quest-gallery .arrow {
+  position: absolute;
+  top: 40px;
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+.wrapper .content .sub-wrapper .quest .gallery-wrapper .quest-gallery .arrow.prev {
+  background: url(../images/controls.png) no-repeat 0 -32px;
+}
+.wrapper .content .sub-wrapper .quest .gallery-wrapper .quest-gallery .arrow.prev:hover {
+  background-position: 0 0;
+}
+.wrapper .content .sub-wrapper .quest .gallery-wrapper .quest-gallery .arrow.next {
+  right: 30px;
+  background: url(../images/controls.png) no-repeat -43px -32px;
+}
+.wrapper .content .sub-wrapper .quest .gallery-wrapper .quest-gallery .arrow.next:hover {
+  background-position: -43px 0;
+}
+.wrapper .content .sub-wrapper .quest .gallery-wrapper .quest-gallery ul {
+  left: 0px;
+  list-style-type: none;
+  width: 2000000000em;
+  overflow: hidden;
+  position: relative;
+}
+.wrapper .content .sub-wrapper .quest .gallery-wrapper .quest-gallery ul li {
+  display: inline-block;
+  margin-right: 25px;
+}
+.wrapper .content .sub-wrapper .quest .gallery-wrapper .quest-gallery ul li a {
   text-decoration: none;
 }
-.wrapper .content .sub-wrapper .quest .quest-gallery a img {
+.wrapper .content .sub-wrapper .quest .gallery-wrapper .quest-gallery ul li a img {
   width: 121px;
   height: 110px;
 }
-.wrapper .content .sub-wrapper .quest .quest-gallery a:last-child {
+.wrapper .content .sub-wrapper .quest .gallery-wrapper .quest-gallery ul li:last-child {
   margin-right: 0px;
 }
 .wrapper .content .sub-wrapper .quest .book {
@@ -292,26 +326,12 @@ body {
 .wrapper .order-wrapper .order #datepicker .ui-state-default.ui-state-active {
   background-color: #a25151;
 }
-.wrapper .order-wrapper .order #datepicker .ui-state-defaulta::after {
-  content: 'Осталось игр: ' attr(data-available);
-  display: block;
-  text-align: center;
-}
-.wrapper .order-wrapper .order #datepicker a.ui-state-default:after {
-  content: 'Осталось игр: ' attr(data-available);
-  display: block;
-  text-align: center;
-  width: 68px;
-}
 .wrapper .order-wrapper .order #datepicker .ui-datepicker th {
   font-size: 9pt;
   width: 14%;
 }
 .wrapper .order-wrapper .order #datepicker .ui-datepicker td {
   padding: 6px;
-}
-.wrapper .order-wrapper .order #datepicker .ui-datepicker td a:hover {
-  background-color: #d2d0de;
 }
 .wrapper .order-wrapper .order #datepicker .ui-datepicker td a,
 .wrapper .order-wrapper .order #datepicker .ui-datepicker td a:hover {
@@ -347,4 +367,12 @@ body {
   font-family: minion-pro;
   color: white;
   font-size: 42px;
+}
+.available-time {
+  position: absolute;
+  text-align: center;
+  width: 68px;
+  padding: 0 4px;
+  font-size: 9pt;
+  cursor: pointer;
 }

@@ -20,19 +20,24 @@
                     <div class="quest-logo"><img src="{{ quest.quest.image.url }}"/></div>
                     <div class="quest-text">{{ quest.quest.description|safe }}</div>
                 </div>
-                <div id="gallery{{forloop.counter}}" class="quest-gallery">
-                    {% for image in quest.images %}
-                        <a href="{{ image.image.url }}">
-                            <img src="{{ image.thumbnail.url }}" />
-                        </a>
-                    {% endfor %}
+                <div class="gallery-wrapper">
+                    <div id="gallery{{forloop.counter}}" class="quest-gallery">
+                        <div class="arrow prev"></div>
+                        <div class="arrow next"></div>
+                        <ul>
+                            {% for image in quest.images %}
+                                <li><a href="{{ image.image.url }}">
+                                    <img src="{{ image.thumbnail.url }}" />
+                                </a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
                 <div class="book">
                     <a href="{% url 'main:order' %}" class="button">ЗАБРОНИРОВАТЬ</a>
                 </div>
             </div>
         {% endfor %}
-
         <div id="contact" class="contact">
             {{ contact.text|safe }}
         </div>

@@ -12,24 +12,6 @@ $(document).ready(function(){
         "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
     ];
 
-    $('.bxslider').bxSlider({
-        auto: true
-    });
-
-    $('.quest-gallery').each(function(){
-        $('#' + $(this).attr('id')).magnificPopup({
-            delegate: 'a',
-            type: 'image',
-            tLoading: 'Loading image #%curr%...',
-            mainClass: 'mfp-img-mobile',
-            gallery: {
-                enabled: true,
-                navigateByImgClick: true,
-                preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-            }
-        });
-    });
-
     function disableTimeOrders() {
         $('.time input[name=time]').prop('checked', false).prop('disabled', false);
         var $datepicker = $("#datepicker");
@@ -67,19 +49,20 @@ $(document).ready(function(){
             }
         }
         var tdDate = null;
+        $('.available-time').remove();
         $("#datepicker").find('td:not(.ui-state-disabled)').each(function(i, el){
             var currentTimes = times;
             var available = 0;
+            var tdDate =
+                $.datepicker.formatDate(
+                    "yy-mm-dd",
+                    new Date(
+                        $(el).data('year'),
+                        $(el).data('month'),
+                        $(el).text()
+                    )
+                );
             for (var i = 0; i < orders.length; i++) {
-                tdDate =
-                    $.datepicker.formatDate(
-                        "yy-mm-dd",
-                        new Date(
-                            $(el).data('year'),
-                            $(el).data('month'),
-                            $(el).text()
-                        )
-                    );
                 if (
                     orders[i].fields.date == tdDate &&
                         orders[i].fields.quest == selectedQuest.val()
@@ -87,7 +70,19 @@ $(document).ready(function(){
                     currentTimes--;
                 }
             }
-            $(this).find('.ui-state-default').attr('data-available', currentTimes);
+            var $time = $('.' + tdDate + '.available-time');
+            if (!$time.length) {
+                $('body').append('<div class="' + tdDate + ' available-time">Осталось игр: <span class="game-amount"></span></div>');
+                $time = $('.' + tdDate + '.available-time');
+            }
+            var top = $(this).find('.ui-state-default').offset()['top'] + 18;
+            var left = $(this).find('.ui-state-default').offset()['left'];
+            $time.css('top', top + "px");
+            $time.css('left', left + "px");
+            $time.find('.game-amount').text(currentTimes);
+            $time.click(function(){
+                $(el).find('a').click();
+            });
         });
     }
 
