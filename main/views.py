@@ -102,6 +102,7 @@ class OrderView(CreateView):
                 )
                 quest_order.save()
                 try:
+                    logger.error("test 1")
                     from django.core.mail import send_mail
                     text = "На " + time_obj.time + ", " + date + " был забронирован квест " + quest.title + ".\n" + \
                            "Имя: " + first_name + ".\n" + \
@@ -110,13 +111,15 @@ class OrderView(CreateView):
                            "Email: " + email + ".\n" + \
                            "Комментарий: " + comment + ".\n" + \
                            "Количество человек: " + str(participant_amount)
+                    logger.error("test 2")
                     send_mail(
                         "Бронирование comaquest",
                         text,
                         "comaquest@mailer.ru",
-                        ["comaquest@gmail.com", "perseidsstarfall@gmail.com"],
+                        ["comaquest@gmail.com"],
                         fail_silently=False
                     )
+                    logger.error("test 3")
                 except Exception as e:
                     logger.error("Exception when send email: " + str(e))
                 return json_response("Ваша заявка принята")
