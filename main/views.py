@@ -114,10 +114,11 @@ class OrderView(CreateView):
                         "Бронирование comaquest",
                         text,
                         "comaquest@mailer.ru",
-                        ["comaquest@gmail.com", "perseidsstarfall@gmail.com"]
+                        ["comaquest@gmail.com", "perseidsstarfall@gmail.com"],
+                        fail_silently=False
                     )
                 except Exception as e:
-                    logger.error(str(e))
+                    logger.error("Exception when send email: " + str(e))
                 return json_response("Ваша заявка принята")
             else:
                 return error_json_response("Данное время уже забранировано")
