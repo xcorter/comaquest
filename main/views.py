@@ -114,8 +114,7 @@ class OrderView(CreateView):
                         "Бронирование comaquest",
                         text,
                         "comaquest@mailer.ru",
-                        ["comaquest@gmail.com"],
-                        fail_silently=True
+                        ["comaquest@gmail.com", "perseidsstarfall@gmail.com"]
                     )
                 except Exception as e:
                     logger.error(str(e))
