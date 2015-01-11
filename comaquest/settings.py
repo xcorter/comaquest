@@ -109,7 +109,7 @@ USE_TZ = True
 TEMPLATE_CONTEXT_PROCESSORS += ('constance.context_processors.config',)
 
 CONSTANCE_CONFIG = {
-    "SLIDER_TIME" : (1000, "Время переключения слайдера"),
+    "SLIDER_TIME" : (4000, "Время переключения слайдера"),
 }
 
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
