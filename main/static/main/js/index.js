@@ -3,7 +3,8 @@
  */
 $(document).ready(function(){
     $('.bxslider').bxSlider({
-        auto: true
+        auto: true,
+        pause: sliderTime
     });
     var imagesPerPage = 6;
 
