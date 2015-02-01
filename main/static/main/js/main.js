@@ -124,6 +124,11 @@ $(document).ready(function(){
             alert("Пожалуйста, заполните все поля");
             return;
         }
+        try {
+            yaCounter28049775.reachGoal('ZAKAZ');
+        } catch (e) {
+            console.log(e);
+        }
         $('#order').ajaxSubmit({
             success: function() {
                 alert('Ваша заявка принята');
